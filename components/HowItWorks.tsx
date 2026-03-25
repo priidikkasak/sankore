@@ -21,7 +21,7 @@ const steps = [
   {
     num: '04',
     title: 'Settlement',
-    body: 'Payment happens against delivery. No upfront wire transfers. No leap of faith. We have structured the process this way deliberately — because trust is built through process, not promises.',
+    body: 'Payment happens against delivery. No upfront wire transfers. No leap of faith. We structured the process this way deliberately — trust is built through process, not promises.',
   },
 ]
 
@@ -30,35 +30,48 @@ export default function HowItWorks() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible') }) },
-      { threshold: 0.15 }
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.12 }
     )
     sectionRef.current?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="bg-[#0D0B08] py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="reveal mb-16 md:mb-24">
+    <section id="how-it-works" ref={sectionRef} className="bg-[#0D0B08] py-28 md:py-36">
+      <div className="max-w-7xl mx-auto px-8 md:px-12">
+
+        <div className="reveal mb-20 md:mb-28">
           <h2 className="font-display font-semibold text-cream leading-tight" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
             The Process
           </h2>
-          <p className="font-body text-gold text-sm tracking-[0.2em] uppercase mt-3">Four steps. Full clarity. No surprises.</p>
+          <p className="font-body mt-3" style={{ color: '#C9A84C', fontSize: '0.72rem', letterSpacing: '0.28em', textTransform: 'uppercase' }}>
+            Four steps. Full clarity. No surprises.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`reveal border-[rgba(201,168,76,0.2)] py-12 md:py-14 ${i % 2 === 0 ? 'md:pr-16' : 'md:pl-16'} ${i < 2 ? 'border-b' : ''} ${i % 2 === 0 ? 'md:border-r' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              className={`reveal border-[rgba(201,168,76,0.12)] py-14 md:py-16
+                ${i % 2 === 0 ? 'md:pr-20' : 'md:pl-20'}
+                ${i < 2 ? 'border-b' : ''}
+                ${i % 2 === 0 ? 'md:border-r' : ''}`}
+              style={{ transitionDelay: `${i * 0.08}s` }}
             >
-              <span className="font-display font-semibold text-gold leading-none block mb-6" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', opacity: 0.25 }}>
+              <span
+                className="font-display font-semibold text-gold leading-none block mb-6"
+                style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', opacity: 0.18 }}
+              >
                 {step.num}
               </span>
-              <h3 className="font-display font-semibold text-cream text-2xl md:text-3xl mb-4">{step.title}</h3>
-              <p className="font-body text-[rgba(245,240,232,0.65)] text-base leading-relaxed">{step.body}</p>
+              <h3 className="font-display font-semibold text-cream mb-4" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)' }}>
+                {step.title}
+              </h3>
+              <p className="font-body leading-[1.8]" style={{ color: 'rgba(245,240,232,0.6)', fontSize: '0.95rem' }}>
+                {step.body}
+              </p>
             </div>
           ))}
         </div>

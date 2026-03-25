@@ -1,15 +1,17 @@
+import Image from 'next/image'
+
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-gold py-8">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex flex-col leading-none">
-          <span className="font-display text-gold text-sm tracking-[0.2em] font-semibold">SANKORE</span>
-          <span className="font-body text-cream text-[0.45rem] tracking-[0.35em] uppercase mt-0.5 opacity-60">Holdings</span>
-        </div>
-        <p className="font-body text-[rgba(245,240,232,0.4)] text-xs tracking-widest text-center">
-          African Gold. No Guesswork. No Games.
+    <footer className="bg-[#080706] border-t border-[rgba(201,168,76,0.2)] py-10">
+      <div className="max-w-7xl mx-auto px-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <Image src="/sankore-logo.png" alt="SANKORE" width={100} height={20} className="h-5 w-auto opacity-80" />
+
+        <p className="font-body text-center" style={{ color: 'rgba(245,240,232,0.3)', fontSize: '0.7rem', letterSpacing: '0.22em' }}>
+          AFRICAN GOLD. NO GUESSWORK. NO GAMES.
         </p>
-        <p className="font-body text-[rgba(245,240,232,0.3)] text-xs">
+
+        <p className="font-body" style={{ color: 'rgba(245,240,232,0.25)', fontSize: '0.7rem', letterSpacing: '0.05em' }}>
           &copy; 2025 SANKORE Holdings. All rights reserved.
         </p>
       </div>

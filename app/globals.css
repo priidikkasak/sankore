@@ -7,14 +7,14 @@
   --font-dm-sans: 'DM Sans', sans-serif;
   --font-barlow: 'Barlow', sans-serif;
   --gold: #C9A84C;
-  --gold-light: #D4A017;
+  --bg: #080808;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0D0B08;
+  background-color: #080808;
   color: #F5F0E8;
   font-family: var(--font-dm-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,7 +33,7 @@ body {
 .fade-up-4 { animation-delay: 0.5s; }
 .fade-up-5 { animation-delay: 0.65s; }
 
-/* ─── Gold shimmer on logo ─────────────────────────────── */
+/* ─── Gold shimmer ─────────────────────────────────────── */
 @keyframes goldShimmer {
   0%, 100% { opacity: 0.9; }
   50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(201,168,76,0.4)); }
@@ -48,11 +48,39 @@ body {
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ─── Scroll progress bar ──────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #b8860b, #C9A84C, #e8c060, #C9A84C);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ─── Nav link hover underline ─────────────────────────── */
+.nav-link {
+  position: relative;
+  padding-bottom: 3px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: #C9A84C;
+  transition: left 0.28s cubic-bezier(0.22,1,0.36,1), right 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-link:hover::after { left: 0; right: 0; }
+
 /* ─── Buttons ──────────────────────────────────────────── */
 .btn-primary {
   background: linear-gradient(135deg, #b8860b 0%, #C9A84C 30%, #e8c060 55%, #C9A84C 75%, #b8860b 100%);
   background-size: 200% 200%;
-  color: #0A0A0A;
+  color: #080808;
   font-family: var(--font-dm-sans), sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
@@ -61,13 +89,14 @@ body {
   padding: 14px 36px;
   display: inline-block;
   text-align: center;
-  transition: background-position 0.4s ease, transform 0.2s ease;
+  transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
   cursor: pointer;
   border: none;
 }
 .btn-primary:hover {
   background-position: right center;
   transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.25);
 }
 
 .btn-ghost {
@@ -81,41 +110,43 @@ body {
   padding: 13px 36px;
   display: inline-block;
   text-align: center;
-  border: 1px solid rgba(201,168,76,0.5);
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  border: 1px solid rgba(201,168,76,0.4);
+  transition: all 0.28s ease;
   cursor: pointer;
 }
 .btn-ghost:hover {
-  background: linear-gradient(135deg, #b8860b 0%, #C9A84C 30%, #e8c060 55%, #C9A84C 75%, #b8860b 100%);
-  color: #0A0A0A;
+  background: linear-gradient(135deg, #b8860b, #C9A84C, #e8c060, #C9A84C, #b8860b);
+  color: #080808;
   border-color: transparent;
   transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.25);
 }
 
 /* ─── Nav CTA ──────────────────────────────────────────── */
 .nav-cta {
   font-family: var(--font-dm-sans), sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 9px 22px;
-  border: 1px solid rgba(201,168,76,0.5);
-  color: #C9A84C;
-  transition: all 0.25s ease;
+  background: linear-gradient(135deg, #b8860b 0%, #C9A84C 40%, #e8c060 55%, #C9A84C 75%, #b8860b 100%);
+  background-size: 200%;
+  color: #080808;
+  border: none;
+  transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 .nav-cta:hover {
-  background: linear-gradient(135deg, #b8860b, #C9A84C, #e8c060, #C9A84C, #b8860b);
-  background-size: 200%;
-  color: #0A0A0A;
-  border-color: transparent;
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 14px rgba(201,168,76,0.3);
 }
 
 /* ─── Inputs ───────────────────────────────────────────── */
 .input-underline {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(201,168,76,0.25);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
   color: #F5F0E8;
   outline: none;
   width: 100%;
@@ -124,15 +155,15 @@ body {
   font-size: 0.9rem;
   transition: border-color 0.2s ease;
 }
-.input-underline::placeholder { color: rgba(245,240,232,0.3); letter-spacing: 0.04em; }
+.input-underline::placeholder { color: rgba(245,240,232,0.28); letter-spacing: 0.04em; }
 .input-underline:focus { border-bottom-color: #C9A84C; }
 
-/* ─── Gold divider ─────────────────────────────────────── */
-.gold-rule { border: none; border-top: 1px solid rgba(201,168,76,0.2); }
+/* ─── Dividers ─────────────────────────────────────────── */
+.gold-rule { border: none; border-top: 1px solid rgba(201,168,76,0.15); }
 
 /* ─── Globe ────────────────────────────────────────────── */
 @keyframes globePulse {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.15)); }
-  50% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.3)); }
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(201,168,76,0.12)); }
+  50% { filter: drop-shadow(0 0 24px rgba(201,168,76,0.28)); }
 }
 .globe-glow { animation: globePulse 4s ease-in-out infinite; }

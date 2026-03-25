@@ -24,8 +24,8 @@ const barlow = Barlow({
 })
 
 export const metadata: Metadata = {
-  title: 'SANKORE Holdings — African Gold Brokerage',
-  description: 'Verified African gold sourcing, logistics, and brokerage. Zero upfront fees. Full transparency. Transport to Dubai and beyond.',
+  title: 'SANKORE Holdings - African Gold Brokerage',
+  description: 'Verified African gold sourcing, logistics, and brokerage. Zero upfront fees. Full transparency.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

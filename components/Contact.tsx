@@ -16,7 +16,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-28 md:py-36" style={{ background: '#080808', borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+    <section id="contact" className="py-28 md:py-36" style={{ background: '#080808' }}>
       <div className="max-w-3xl mx-auto px-8 md:px-12">
         <h2 className="font-display font-semibold text-cream leading-tight mb-5" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
           Ready to Move Gold?

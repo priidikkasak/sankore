@@ -21,7 +21,7 @@ body {
   font-feature-settings: "kern" 1, "liga" 1;
 }
 
-/* ─── Hero fade-up ─────────────────────────────────────── */
+/* --- Hero fade-up --------------------------------------- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -33,14 +33,14 @@ body {
 .fade-up-4 { animation-delay: 0.5s; }
 .fade-up-5 { animation-delay: 0.65s; }
 
-/* ─── Gold shimmer ─────────────────────────────────────── */
+/* --- Gold shimmer --------------------------------------- */
 @keyframes goldShimmer {
   0%, 100% { opacity: 0.9; }
   50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(201,168,76,0.4)); }
 }
 .gold-shimmer { animation: goldShimmer 3.5s ease-in-out infinite; }
 
-/* ─── Scroll reveal ────────────────────────────────────── */
+/* --- Scroll reveal -------------------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -48,7 +48,7 @@ body {
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ─── Scroll progress bar ──────────────────────────────── */
+/* --- Scroll progress bar -------------------------------- */
 #scroll-progress {
   position: fixed;
   top: 0;
@@ -57,9 +57,13 @@ body {
   background: linear-gradient(90deg, #b8860b, #C9A84C, #e8c060, #C9A84C);
   z-index: 100;
   transition: width 0.1s linear;
+  display: none;
+}
+@media (min-width: 768px) {
+  #scroll-progress { display: block; }
 }
 
-/* ─── Nav link hover underline ─────────────────────────── */
+/* --- Nav link hover underline --------------------------- */
 .nav-link {
   position: relative;
   padding-bottom: 3px;
@@ -76,7 +80,7 @@ body {
 }
 .nav-link:hover::after { left: 0; right: 0; }
 
-/* ─── Buttons ──────────────────────────────────────────── */
+/* --- Buttons -------------------------------------------- */
 .btn-primary {
   background: linear-gradient(135deg, #b8860b 0%, #C9A84C 30%, #e8c060 55%, #C9A84C 75%, #b8860b 100%);
   background-size: 200% 200%;
@@ -122,7 +126,7 @@ body {
   box-shadow: 0 4px 20px rgba(201,168,76,0.25);
 }
 
-/* ─── Nav CTA ──────────────────────────────────────────── */
+/* --- Nav CTA -------------------------------------------- */
 .nav-cta {
   font-family: var(--font-dm-sans), sans-serif;
   font-size: 0.7rem;
@@ -142,7 +146,7 @@ body {
   box-shadow: 0 3px 14px rgba(201,168,76,0.3);
 }
 
-/* ─── Inputs ───────────────────────────────────────────── */
+/* --- Inputs --------------------------------------------- */
 .input-underline {
   background: transparent;
   border: none;
@@ -158,10 +162,10 @@ body {
 .input-underline::placeholder { color: rgba(245,240,232,0.28); letter-spacing: 0.04em; }
 .input-underline:focus { border-bottom-color: #C9A84C; }
 
-/* ─── Dividers ─────────────────────────────────────────── */
+/* --- Dividers ------------------------------------------- */
 .gold-rule { border: none; border-top: 1px solid rgba(201,168,76,0.15); }
 
-/* ─── Globe ────────────────────────────────────────────── */
+/* --- Globe ---------------------------------------------- */
 @keyframes globePulse {
   0%, 100% { filter: drop-shadow(0 0 10px rgba(201,168,76,0.12)); }
   50% { filter: drop-shadow(0 0 24px rgba(201,168,76,0.28)); }
